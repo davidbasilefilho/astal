@@ -15,3 +15,44 @@
 
 ### [OSD](https://github.com/Aylur/astal/tree/main/examples/gtk3/js/osd)
 ![osd](https://github.com/user-attachments/assets/08e0e118-6b07-4cac-8ebc-08262594cee7)
+
+## Integrated Examples
+
+To run the integrated examples, follow these steps:
+
+1. Ensure you have the necessary dependencies installed.
+2. Create a new entry point file `examples/gtk3/js/integrated-app.ts` with the following content:
+
+```typescript
+import { App } from "astal/gtk3";
+import Applauncher from "./applauncher/app";
+import MediaPlayer from "./media-player/widget/MediaPlayer";
+import NotificationPopups from "./notifications/notifications/NotificationPopups";
+
+// Initialize Applauncher
+function initializeApplauncher() {
+    Applauncher();
+}
+
+// Initialize MediaPlayer
+function initializeMediaPlayer() {
+    MediaPlayer();
+}
+
+// Initialize NotificationPopups
+function initializeNotificationPopups() {
+    NotificationPopups();
+}
+
+// Start the integrated app
+App.start({
+    instanceName: "integrated-app",
+    main() {
+        initializeApplauncher();
+        initializeMediaPlayer();
+        initializeNotificationPopups();
+    },
+});
+```
+
+3. Run the integrated examples using the new entry point file.
